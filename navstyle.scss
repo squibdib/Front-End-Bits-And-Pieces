@@ -1,0 +1,79 @@
+$navBG: #17394e;//background color for the navigation bar
+$navHover: #117cf9;//background color for the navbar hover
+
+//Desktop view
+body {
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+nav {
+  background-color: $navBG;
+  overflow: hidden;//Just in case
+  //display: block;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      display: inline-block;
+
+      a {
+        padding: 10px;
+        display: block;
+        text-align: center;
+        color: #ffffff;
+        text-decoration: none;
+      }
+
+      a:hover {
+        background-color: $navHover;
+      }
+    }
+
+    li.nav-right {
+      float: right;
+    }
+
+    li.menu {
+      display: none;
+    }
+  }
+}
+
+//Mobile View
+@media screen and (max-width: 700px) {
+  nav {
+    ul li:not(:nth-child(1)) {//hide every navbar item that is NOT the first item
+      display: none;
+    }
+
+    ul li.menu {
+      display: inline-block;
+      float: right;
+    }
+
+    //mobile navigation class created by javascript
+    ul.mobile {
+      li {
+        display: block;
+
+        a {
+          text-align: left;
+        }
+      }
+
+      li.nav-right {
+        float: none;
+      }
+
+      li.menu {
+        float: none;
+        position: absolute;//keep menu icon at the top right
+        top: 0;//keep menu icon at the top
+        right: 0;//and keep it at the right
+      }
+    }
+  }
+}
